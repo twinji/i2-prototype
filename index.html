@@ -1,0 +1,176 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <!--<script src="http://code.jquery.com/jquery-latest.min.js"></script>-->
+        <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+    </head>
+    <body>
+        <div class="device-frame">
+            <div id="q1" class="container">
+                <h1>Choose your language</h1>
+                <br/><br/>
+                <p class="half-page">
+                    русский<br/><br/>
+                    <span id="english" class="clickable-text">English</span><br/><br/>
+                    Español<br/><br/>
+                    Deutsche<br/><br/>
+                    Ελληνικά<br/><br/>
+                    italiano<br/><br/>
+                    français<br/><br/>
+                    български<br/><br/>
+                </p>
+                <p class="half-page">
+                    Polskie<br/><br/>
+                    Nederlands<br/><br/>
+                    中文<br/><br/>
+                    日本語<br/><br/>
+                    svenska<br/><br/>
+                    Türk<br/><br/>
+                    eurbaa<br/><br/>
+                    čeština<br/><br/>
+                </p>
+                <button id="btn-q1">Choose</button>
+            </div>
+
+            <div id="q2" class="container away-right" style="text-align: left;">
+                <h1>Choose what best describes you</h1>
+                <br /><br/><br/><br/><br/><br/>
+                <p class="option">I am looking to migrate to another country<input type="radio" name="option" /></p>
+                <hr />
+                <p class="option">I am currently in the process of migrating<input type="radio" name="option"/></p>
+                <hr />
+                <p class="option">I have migrated<input type="radio" name="option"/></p>
+                <br /><br/><br/><br/>
+                <button id="btn-q2">Choose</button>
+            </div>
+
+            <div id="main-page" class="container away-right">
+                <h1 class="large">i2</h1>
+                <div id="search-page" class="search-page">
+                    <input id="search-bar" class="search-bar" type="text" placeholder="Search here..." />
+                    <select>
+                        <option>CATEGORY</option>
+                        <option>JOBS</option>
+                        <option>EVENTS</option>
+                        <option>FOOD</option>
+                        <option>TRANSPORT</option>
+                        <option>TRAVEL</option>
+                        <option>LIFESTYLE</option>
+                    </select>
+                    <button id="search-back" class="back"><</button>
+                </div>
+                <button id="btn-goals">Goals</button>
+                <button id="btn-profile">Profile</button>
+                <button id="btn-settings">Settings</button>
+            </div>
+
+            <div id="settings" class="container away-right">
+                <h1>Settings</h1>
+                <br />
+                <button>Replay tutorial</button>
+                <button>Delete profiles</button>
+                <button id="settings-back" class="back"><</button>
+            </div>
+
+            <div id="profile" class="container card away-top">
+                <h1>Profile</h1>
+                <br />
+                <div class="profile-img">
+
+                </div>
+                <span>Tom Zing<br/></span>
+                <br/><br />
+
+                <button id="btn-update">Update details</button>
+                <button>Refine details</button>
+                <button>Switch profile</button>
+                <button id="profile-back" class="back"><</button>
+            </div>
+
+            <div id="goals" class="container card away-top">
+                <h1>Goals</h1>
+                <br/>
+                <h2>Stage 1</h2>
+                <br/><br/>
+                <p class="option">Task 1<input type="checkbox" name="option" /></p>
+                <hr />
+                <p class="option">Task 2<input type="checkbox" name="option"/></p>
+                <hr />
+                <p class="option">Task 3<input type="checkbox" name="option"/></p>
+                <hr />
+                <p class="option">Task 4<input type="checkbox" name="option" /></p>
+                <hr />
+                <p class="option">Task 5<input type="checkbox" name="option"/></p>
+                <hr />
+                <p class="option">Task 6<input type="checkbox" name="option"/></p>
+                <br/>
+                <button>Next ></button>
+                <button>< Previous</button>
+                <button id="goals-back" class="back"><</button>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function() {
+
+                $("#english").click(function() {
+                    $("#english").css("color", "white")
+                });
+
+                $("#btn-q1").click(function() {
+                    $("#q1").addClass("away-left");
+                    $("#q2").removeClass("away-right");
+                    $("#english").delay(1000).queue(function(next) {
+                        $(this).css("color", "gray");
+                    });
+                });
+
+                $("#btn-q2").click(function() {
+                    $("#q2").addClass("away-left");
+                    $("#main-page").removeClass("away-right");
+                });
+
+                $("#search-bar").click(function() {
+                    $("#search-page").addClass("open");
+                });
+
+                $("#search-back").click(function() {
+                    $("#search-page").removeClass("open");
+                });
+
+                $("#btn-settings").click(function() {
+                    $("#main-page").addClass("away-left");
+                    $("#settings").removeClass("away-right");
+                });
+
+                $("#settings-back").click(function() {
+                    $("#main-page").removeClass("away-left");
+                    $("#settings").addClass("away-right");
+                });
+
+                $("#btn-profile").click(function() {
+                    $("#profile").removeClass("away-top");
+                });
+
+                $("#profile-back").click(function() {
+                    $("#profile").addClass("away-top");
+                });
+
+                $("#btn-update").click(function() {
+                    $("#profile").addClass("away-top");
+                    $("#main-page").addClass("away-right");
+                    $("#q1").removeClass("away-left");
+                    $("#q2").removeClass("away-left").addClass("away-right");
+                });
+
+                $("#btn-goals").click(function() {
+                    $("#goals").removeClass("away-top");
+                });
+
+                $("#goals-back").click(function() {
+                    $("#goals").addClass("away-top");
+                });
+
+            });
+        </script>
+    </body>
+</html>
